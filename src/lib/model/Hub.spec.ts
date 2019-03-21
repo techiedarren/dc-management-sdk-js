@@ -165,3 +165,10 @@ test('toJson on a page of resources should copy resource attributes', async t =>
     }
   });
 });
+
+test('list workflow states', async t => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const result = await hub.related.workflowStates.list();
+  t.is(result.getItems()[0].label, 'In Progress');
+});

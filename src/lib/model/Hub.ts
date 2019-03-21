@@ -10,6 +10,7 @@ import { Pageable } from './Pageable';
 import { Sortable } from './Sortable';
 import { Status } from './Status';
 import { Webhook, WebhooksPage } from './Webhook';
+import { WorkflowState, WorkflowStatePage } from './WorkflowState';
 
 /**
  * Class representing the [Hub](https://api.amplience.net/v2/content/docs/api/index.html#resources-hubs) resource.
@@ -131,6 +132,14 @@ export class Hub extends HalResource {
        */
       list: (options?: Pageable & Sortable): Promise<Page<Webhook>> =>
         this.fetchLinkedResource('webhooks', options, WebhooksPage)
+    },
+    workflowStates: {
+      /**
+       * Retrieves a list of Workflow States associated with this Hub
+       * @param options Pagination options
+       */
+      list: (options?: Pageable & Sortable): Promise<Page<WorkflowState>> =>
+        this.fetchLinkedResource('workflow-states', options, WorkflowStatePage)
     }
   };
 }

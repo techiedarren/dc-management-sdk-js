@@ -5,6 +5,16 @@ import { Page } from './Page';
 import { Status } from './Status';
 
 /**
+ * Workflow state of a Content Item
+ */
+export interface ContentItemWorkflow {
+  /**
+   * Id of the Workflow State assigned to the Content Item
+   */
+  state: string;
+}
+
+/**
  * Class representing the [Content Item](https://api.amplience.net/v2/content/docs/api/index.html#resources-content-items) resource.
  * Content Items are instances of content created from a content type.
  */
@@ -63,6 +73,11 @@ export class ContentItem extends HalResource {
    * Lifecycle status of the content item
    */
   public status?: Status;
+
+  /**
+   * Workflow
+   */
+  public workflow: ContentItemWorkflow;
 
   /**
    * Id of the user responsible for originally creating the content item

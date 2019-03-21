@@ -103,3 +103,13 @@ test('unassign content type', async t => {
   );
   t.pass();
 });
+
+test('get hub', async t => {
+  const client = new MockDynamicContent();
+  const contentRepository = await client.contentRepositories.get(
+    '5b32377b4cedfd01c4503691'
+  );
+
+  const result = await contentRepository.related.hub();
+  t.is(result.label, 'Anya Finn');
+});

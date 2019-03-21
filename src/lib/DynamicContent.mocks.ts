@@ -129,6 +129,11 @@ export const HUB = {
     'create-webhook': {
       href:
         'https://api.amplience.net/v2/content/hubs/5be1d5814cedfd01c030da20/webhooks'
+    },
+    'workflow-states': {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5be1d5814cedfd01c030da20/workflow-states{?page,size,sort}',
+      templated: true
     }
   }
 };
@@ -351,7 +356,7 @@ export const CONTENT_REPOSITORY = {
         'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691'
     },
     hub: {
-      href: 'https://api.amplience.net/v2/content/hubs/5b32377b4cedfd01c4503690'
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8'
     },
     'create-content-item': {
       href:
@@ -817,6 +822,33 @@ export const CONTENT_TYPE = {
   }
 };
 
+const WORKFLOW_STATE = {
+  id: '5c882042c9e77c03383e4ef5',
+  label: 'In Progress',
+  createdBy: 'user',
+  createdDate: '2018-01-02T06:04:05.000Z',
+  lastModifiedBy: 'user',
+  lastModifiedDate: '2018-01-02T06:04:05.000Z',
+  color: 'rgb(150,200,250)',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/workflow-states/5c882042c9e77c03383e4ef5'
+    },
+    'workflow-state': {
+      href:
+        'https://api.amplience.net/v2/content/workflow-states/5c882042c9e77c03383e4ef5'
+    },
+    hub: {
+      href: 'https://api.amplience.net/v2/content/hubs/5c882042c9e77c03383e4ef3'
+    },
+    update: {
+      href:
+        'https://api.amplience.net/v2/content/workflow-states/5c882042c9e77c03383e4ef5'
+    }
+  }
+};
+
 /* tslint:enable:object-literal-sort-keys */
 /**
  * @hidden
@@ -839,7 +871,10 @@ export class DynamicContentFixtures {
       .nestedCollection('webhooks', {}, 'webhooks', [WEBHOOK])
       .nestedCreateResource('create-webhook', {}, WEBHOOK)
       .nestedCollection('content-types', {}, 'content-types', [CONTENT_TYPE])
-      .nestedCreateResource('register-content-type', {}, CONTENT_TYPE);
+      .nestedCreateResource('register-content-type', {}, CONTENT_TYPE)
+      .nestedCollection('workflow-states', {}, 'workflow-states', [
+        WORKFLOW_STATE
+      ]);
 
     // Content items
     mocks

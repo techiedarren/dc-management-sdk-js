@@ -23,7 +23,7 @@ export {
   ContentRepository,
   ContentRepositoryContentType
 } from './lib/model/ContentRepository';
-export { ContentItem } from './lib/model/ContentItem';
+export { ContentItem, ContentItemWorkflow } from './lib/model/ContentItem';
 export { Pageable } from './lib/model/Pageable';
 export { Sortable } from './lib/model/Sortable';
 export { Status } from './lib/model/Status';
@@ -41,6 +41,7 @@ export { WebhookSignature } from './lib/utils/WebhookSignature';
 export { Folder } from './lib/model/Folder';
 export { LocalizationJob } from './lib/model/LocalizationJob';
 export { LocalizationRoot } from './lib/model/LocalizationRoot';
+export { WorkflowState } from './lib/model/WorkflowState';
 
 export {
   ContentType,
